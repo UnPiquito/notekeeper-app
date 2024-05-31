@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import noteService from "../../services/notes/noteService.js";
 
+
 const CreateNoteForm = ({ onNoteCreated }) => {
   const [note, setNote] = useState({
     name: "",

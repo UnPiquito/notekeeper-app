@@ -14,4 +14,4 @@ const validateEnum = (note) => {
   return true;
 };
 
-module.exports = validateEnum;
+export default validateEnum;

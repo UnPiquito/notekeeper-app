@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import noteService from "../../services/notes/noteService.js";
+import useNote from "../../hooks/useNote.jsx";
 
-const UpdateNoteForm = ({ noteId, onNoteUpdated }) => {
+const UpdateNoteForm = ({ noteId, visible }) => {
+  const {updateNote} = useNote();
   const [note, setNote] = useState({
     id: "",
     name: "",
@@ -11,10 +13,6 @@ const UpdateNoteForm = ({ noteId, onNoteUpdated }) => {
     due_date: "",
     created_at: null,
   });
-
-  useEffect(() => {
-    noteService.getNoteById(noteId).then((fetchedNote) => setNote(fetchedNote));
-  }, [noteId]);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -26,8 +24,12 @@ const UpdateNoteForm = ({ noteId, onNoteUpdated }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    noteService.updateNote(note).then((updatedNote) => {
-      onNoteUpdated(updatedNote);
+    noteService.updateNote(note).then(() => {
+      noteService.getAllNotes().then((data)=>{
+        updateNote(data.notes)
+      })
+    }).finally(()=>{
+      visible(false)
     });
   };
 

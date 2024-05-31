@@ -22,4 +22,4 @@ const validateType = (note) => {
   return true;
 };
 
-module.exports = validateType;
+export default validateType;

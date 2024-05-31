@@ -1,5 +1,9 @@
-import  useNote  from "./hooks/useNote.jsx";
+import React, { useState } from "react";
+import useNote from "./hooks/useNote.jsx";
 import NoteList from "./components/NoteList/NoteList.jsx";
+import CreateNoteForm from "./components/CreateNoteFrom/CreateNoteFrom.jsx";
+import UpdateNoteForm from "./components/UpdateNoteFrom/UpdateNoteFrom.jsx";
+
 function App() {
   const {
     notes,
@@ -9,16 +13,32 @@ function App() {
     handleDeleteNote,
     handleUpdateNote,
   } = useNote();
+  const [selectedNoteId, setSelectedNoteId] = useState(null);
+
+  const handleNoteSelect = (id) => {
+    setSelectedNoteId(id);
+  };
+
+  const handleNoteUpdated = () => {
+    setSelectedNoteId(null); 
+    getAllNotesHandler(); 
+  };
 
   return (
-    <NoteList
-      notes={notes}
-      loading={loading}
-      handleAddNewNote={handleAddNewNote}
-      getAllNotesHandler={getAllNotesHandler}
-      handleUpdateNote={handleUpdateNote}
-      handleDeleteNote={handleDeleteNote}
-    />
+    <div>
+      <h1>NoteKeeper</h1>
+      <CreateNoteForm onNoteCreated={handleAddNewNote} />      
+      <NoteList
+        notes={notes}
+        loading={loading}
+        handleAddNewNote={handleAddNewNote}
+        getAllNotesHandler={getAllNotesHandler}
+        handleUpdateNote={handleUpdateNote}
+        handleDeleteNote={handleDeleteNote}
+        onNoteSelect={handleNoteSelect}
+        onUpdate={handleUpdateNote} 
+      />
+    </div>
   );
 }
 
