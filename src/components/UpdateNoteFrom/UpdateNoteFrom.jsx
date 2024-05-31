@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
 import noteService from "../../services/notes/noteService.js";
 import useNote from "../../hooks/useNote.jsx";
 
-const UpdateNoteForm = ({ noteId, visible }) => {
+const UpdateNoteForm = ({ visible }) => {
   const {updateNote} = useNote();
   const [note, setNote] = useState({
     id: "",

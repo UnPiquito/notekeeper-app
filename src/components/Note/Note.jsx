@@ -1,8 +1,7 @@
-import React from "react";
 import useVisible from "../../hooks/useVisible.jsx"
 import UpdateNoteForm from "../UpdateNoteFrom/UpdateNoteFrom.jsx";
 
-const Note = ({ note, onDelete, onUpdate }) => {
+const Note = ({ note, onDelete}) => {
   const { id, name, description, important, status, due_date } = note;
   const {visible, updatevisible} = useVisible();
 

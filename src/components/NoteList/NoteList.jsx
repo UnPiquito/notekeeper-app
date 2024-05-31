@@ -1,4 +1,3 @@
-import React from "react";
 import useNote from "../../hooks/useNote.jsx";
 import Note from "../Note/Note.jsx";
 
