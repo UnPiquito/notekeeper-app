@@ -1,13 +1,25 @@
-import { useState } from 'react'
-
+import  useNote  from "./hooks/useNote.jsx";
+import NoteList from "./components/NoteList/NoteList.jsx";
 function App() {
-  const [count, setCount] = useState(0)
+  const {
+    notes,
+    loading,
+    handleAddNewNote,
+    getAllNotesHandler,
+    handleDeleteNote,
+    handleUpdateNote,
+  } = useNote();
 
   return (
-    <>
-      <h1>notekeeper-app</h1>
-    </>
-  )
+    <NoteList
+      notes={notes}
+      loading={loading}
+      handleAddNewNote={handleAddNewNote}
+      getAllNotesHandler={getAllNotesHandler}
+      handleUpdateNote={handleUpdateNote}
+      handleDeleteNote={handleDeleteNote}
+    />
+  );
 }
 
-export default App
+export default App;
