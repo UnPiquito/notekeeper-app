@@ -4,6 +4,7 @@ import NoteList from "./components/NoteList/NoteList.jsx";
 import CreateNoteForm from "./components/CreateNoteFrom/CreateNoteFrom.jsx";
 import UpdateNoteForm from "./components/UpdateNoteFrom/UpdateNoteFrom.jsx";
 
+
 function App() {
   const {
     notes,
