@@ -1,5 +1,5 @@
-import React, { useState } from "react";
 import noteService from "../../services/notes/noteService.js";
+import { useState } from "react";
 
 
 const CreateNoteForm = ({ onNoteCreated }) => {

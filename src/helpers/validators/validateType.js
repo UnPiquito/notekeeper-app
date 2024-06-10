@@ -10,7 +10,7 @@ const validateType = (note) => {
   };
 
   for (const prop in expectedTypes) {
-    if (!note.hasOwnProperty(prop)) {
+    if (!note == prop) {
       return false;
     }
 

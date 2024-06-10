@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import noteService from "../../services/notes/noteService.js";
-import useNote from "../../hooks/useNote.jsx";
 
 const UpdateNoteForm = ({ noteId, visible }) => {
-  const {updateNote} = useNote();
   const [note, setNote] = useState({
     id: "",
     name: "",
@@ -24,9 +22,9 @@ const UpdateNoteForm = ({ noteId, visible }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    noteService.updateNote(note).then(() => {
+    noteService.updateNote(noteId, note.name, note.description, note.important, note.status, note.due_date).then(() => {
       noteService.getAllNotes().then((data)=>{
-        updateNote(data.notes)
+        setNote(data.notes)
       })
     }).finally(()=>{
       visible(false)

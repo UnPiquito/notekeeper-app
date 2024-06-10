@@ -4,7 +4,7 @@ const validateEnum = (note) => {
   };
 
   for (const prop in allowedValues) {
-    if (note.hasOwnProperty(prop) && typeof note[prop] === "string") {
+    if (note == prop && typeof note[prop] === "string") {
       if (!allowedValues[prop].includes(note[prop])) {
         return false;
       }

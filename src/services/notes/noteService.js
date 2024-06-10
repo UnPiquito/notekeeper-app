@@ -28,28 +28,25 @@ const createNote = (newNote) => {
   return request;
 };
 
-const updateNote = ({
+const updateNote = (
   id,
   name,
   description,
   important,
   status,
   due_date,
-  created_at,
-}) => {
+) => {
   return fetch(`${urlFetchNotes}/${id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      id: id,
       name: name,
       description: description,
       important: important,
       status: status,
       due_date: due_date,
-      created_at: created_at,
     }),
   }).then((response) => response.json());
 };
