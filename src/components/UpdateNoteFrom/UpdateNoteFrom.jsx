@@ -1,15 +1,7 @@
-<<<<<<< HEAD
 import { useState } from "react";
-=======
->>>>>>> ddff1c28f8566ad821ca3a9bec5a4a4df99ad0c1
 import noteService from "../../services/notes/noteService.js";
 
-<<<<<<< HEAD
 const UpdateNoteForm = ({ noteId, visible }) => {
-=======
-const UpdateNoteForm = ({ visible }) => {
-  const {updateNote} = useNote();
->>>>>>> ddff1c28f8566ad821ca3a9bec5a4a4df99ad0c1
   const [note, setNote] = useState({
     id: "",
     name: "",
