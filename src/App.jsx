@@ -18,7 +18,6 @@ function App() {
     setSelectedNoteId(id);
   };
 
-
   return (
     <div>
       <h1>NoteKeeper</h1>
